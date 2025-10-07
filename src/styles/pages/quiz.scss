@@ -1,0 +1,51 @@
+.quiz {
+  box-shadow: 0px 0px 15px -3px gray;
+  border-radius: 6px;
+  text-align: center;
+  padding: 2rem;
+  width: 340px;
+  margin: 2rem auto;
+  .question {
+    font-size: 1.3rem;
+    margin-bottom: 1rem;
+  }
+  .options {
+    list-style: none;
+    padding: 0;
+    li {
+      margin: 0.5rem auto;
+      padding: 0.8rem 1.2rem;
+      width: 250px;
+      border: 2px solid #007bff;
+      border-radius: 6px;
+      cursor: pointer;
+      transition: all 0.2s;
+      &:hover {
+        background: #007bff;
+        color: white;
+      }
+      &.selected {
+        background: #007bff;
+        color: white;
+      }
+    }
+  }
+.score{
+      color: gray;
+      font-size: 14px;
+    }
+  button {
+    margin-top: 1rem;
+    padding: 0.7rem 1.5rem;
+    border: none;
+    background: #28a745;
+    color: white;
+    font-size: 1rem;
+    border-radius: 6px;
+    cursor: pointer;
+    &:disabled {
+      background: #ccc;
+      cursor: not-allowed;
+    }
+  }
+}
