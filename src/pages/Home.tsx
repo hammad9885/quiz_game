@@ -3,10 +3,14 @@ import "../styles/pages/home.scss";
 
 const Home = () => {
   return (
+    <>
+   <div className="center">
     <div className="home">
       <h1>Welcome to the Quiz Game</h1>
       <Link to="/quiz" className="start-btn">Start Quiz</Link>
     </div>
+    </div> 
+    </>
   );
 };
 
