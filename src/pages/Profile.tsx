@@ -12,19 +12,16 @@ const Profile = () => {
 
   useEffect(() => {
     if (!user) return;
-
     const loadScores = async () => {
       const ref = collection(db, "scores", user.uid, "records");
       const q = query(ref, orderBy("timestamp", "desc"), limit(50));
       const snap = await getDocs(q);
-
       setRecords(
         snap.docs.map((doc) => ({
           id: doc.id,
           ...doc.data(),
         }))
       );
-
       setLoading(false);
     };
 
