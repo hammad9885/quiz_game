@@ -1,0 +1,55 @@
+.profile-page {
+  display: flex;
+  justify-content: center;
+  padding-top: 40px;
+}
+
+.profile-card {
+  background: white;
+  padding: 30px;
+  width: 400px;
+  border-radius: 15px;
+  text-align: center;
+  box-shadow: 0 0 15px #0002;
+}
+
+.email {
+  color: #555;
+  margin-bottom: 20px;
+}
+
+.records {
+  list-style: none;
+  padding: 0;
+  margin-top: 20px;
+}
+
+.record-item {
+  background: #f3f3f3;
+  border-radius: 10px;
+  padding: 12px;
+  margin-bottom: 12px;
+  display: flex;
+  justify-content: space-between;
+}
+.profile-card .buttons {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  margin-top: 1.5rem;
+  flex-wrap: wrap;
+}
+
+.profile-card .btn {
+  text-decoration: none;
+  padding: 0.8rem 1.5rem;
+  background: #007bff;
+  color: white;
+  border-radius: 6px;
+  font-size: 1rem;
+  text-align: center;
+
+  &:hover {
+    background: #0056b3;
+  }
+}
