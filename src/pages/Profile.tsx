@@ -11,21 +11,24 @@ const Profile = () => {
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    const fetchScores = async () => {
-      if (!user) return;
+    if (!user) return;
+
+    const loadScores = async () => {
       const ref = collection(db, "scores", user.uid, "records");
       const q = query(ref, orderBy("timestamp", "desc"), limit(50));
-      const snapshot = await getDocs(q);
-      const data = snapshot.docs.map((doc) => ({
-        id: doc.id,
-        ...doc.data(),
-      }));
+      const snap = await getDocs(q);
 
-      setRecords(data);
+      setRecords(
+        snap.docs.map((doc) => ({
+          id: doc.id,
+          ...doc.data(),
+        }))
+      );
+
       setLoading(false);
     };
 
-    fetchScores();
+    loadScores();
   }, [user]);
 
   if (!user) return <p>Please log in</p>;
@@ -44,13 +47,13 @@ const Profile = () => {
           <p>No quiz history yet.</p>
         ) : (
           <ul className="records">
-            {records.map((record) => (
-              <li key={record.id} className="record-item">
+            {records.map((r) => (
+              <li key={r.id} className="record-item">
                 <span className="score">
-                  Score: {record.score} / {record.total}
+                  Score: {r.score} / {r.total}
                 </span>
                 <span className="time">
-                  {new Date(record.timestamp).toLocaleString()}
+                  {new Date(r.timestamp).toLocaleString()}
                 </span>
               </li>
             ))}
@@ -58,12 +61,8 @@ const Profile = () => {
         )}
 
         <div className="buttons">
-          <Link to="/" className="btn">
-            Home
-          </Link>
-          <Link to="/quiz" className="btn">
-            Start Quiz
-          </Link>
+          <Link to="/" className="btn">Home</Link>
+          <Link to="/quiz" className="btn">Start Quiz</Link>
         </div>
       </div>
     </div>
